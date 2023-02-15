@@ -1,97 +1,780 @@
-<!-- https://www.geeksforgeeks.org/how-to-change-the-background-color-after-clicking-the-button-in-javascript/  -->
-<!-- ^ change color text with a button  -->
+<!-- Who taught you unlove yourself so sweetly that you actually thought it tasted good? -Alex Elle  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> poem styled by naruhlee </title>
-    <h2>  A Beautiful Poem: The Rock Verdant </h2>
-<style>
-    body{
-        text-align: center;
-        font-size: 20px;
-    }
-    #first-line {
-        color: whitesmoke;
-        height: 30px;
-        margin: 0%;
-    }
-    #second-line{
-        color: whitesmoke;
-        margin: 0%;
-        height: 30px;
-    }
-    #third-line{
-        color: whitesmoke;
-        margin: 0%;
-        height: 30px;
-    }
-    #fourth-line{
-        color: whitesmoke; 
-        margin: 0%;
-        height: 30px;
-    }
-    #fifth-line{
-        color: whitesmoke;
-        margin: 0%;
-        height: 30px;
-    }
-    #sixth-line{
-        color: whitesmoke;
-        margin: 0%;
-        height: 50px;
-    }
-    #seventh-line{
-        color: whitesmoke;
-        margin: 0%;
-        height: 30px;
-    }
-    #eigth-line{
+    <title> naruhlee designs a poem </title>
+    <style>
+        *,*::after, *::before
+        {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000117;
+        }
+        #poster{
+            background-color: #000117;
+            width: 580px;
+            height: calc(500px/18*24);
+            padding: 20px;
+            margin-left: 20%;
+            margin-right: 50%;
+            margin-top: -5%;
+        }
+
+        /* WHO TAUGHT YOU */
+        #btn--you{
+        position: absolute;
+        margin-top: 10%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
         color: white;
-        margin: 0%;
-        height: 30px;
+        }
+
+        .you{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
     }
-    #instructions{
-        font-size: 15px;
-        margin: 0%;
-        height: 30px;
+
+    .you.active{
+    transform: translate(-50%, -50%) scale(1)
     }
-    a{
-        font-size: 15px;
-        color: pink;
-        text-decoration: dashed;
-        text-decoration-color: black;
+
+    #you{
+    position: absolute;
     }
- 
-</style>
+    .header--you{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--you .title--you{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--you .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .you--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .you--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* TO UNLOVE YOURSELF */
+
+#btn--unlove{
+        position: absolute;
+        margin-top: 14%;
+        margin-left: 20%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .unlove{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .unlove.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #unlove{
+    position: absolute;
+    }
+    .header--unlove{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--unlove .title--unlove{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--unlove .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .unlove--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .unlove--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay1{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay1.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* SO SWEETLY */
+#btn--sweetly{
+        position: absolute;
+        margin-top: 30%;
+        margin-left: 25%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .sweetly{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .sweetly.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #sweetly{
+    position: absolute;
+    }
+    .header--sweetly{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--sweetly .title--sweetly{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--sweetly .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .sweetly--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .sweetly--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay2{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay2.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* THAT YOU ACTUALLY THOUGHT */
+#btn--thought{
+        position: absolute;
+        margin-top: 40%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .thought{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .thought.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #thought{
+    position: absolute;
+    }
+    .header--thought{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--thought .title--thought{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--thought .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .thought--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .thought--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay3{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay3.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* IT TASTED */
+
+#btn--tasted{
+        position: absolute;
+        margin-top: 55%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .tasted{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .tasted.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #tasted{
+    position: absolute;
+    }
+    .header--tasted{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--tasted .title--tasted{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--tasted .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .tasted--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .tasted--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay4{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay4.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/*  GOOD? */
+#btn--good{
+        position: absolute;
+        margin-top: 60%;
+        margin-left: 35%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .good{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .good.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #gov{
+    position: absolute;
+    }
+    .header--good{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--good .title--good{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--good .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .good--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .good--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay5{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay5.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+
+    </style>
+
 </head>
 <body>
-    <p id="instructions"> click the first button 'poem' :) </p>
-    <p id="first-line">  a beautiful <button onclick= "colorFunction()"> poem </button> </p>
-    <p id="second-line"> the rock <button onclick="colorFunction()"> verdant</button> </p>
-    <p id="third-line"> a mountain <button id="line3"> powerful</button></p>
-    <p id="fourth-line"> a tree <button id="line4"> afraid </button> </p>
-    <p id="fifth-line"> an powerful <button id="line5"> mountain</button></p>
-    <p id="sixth-line"> The verdant rock <br> a afraid blade of <button id="line6"> grass </button></p>
-    <p id="seventh-line"> an powerful blade of <button id="line7"> grass </button> </p>
-    <p id="eigth-line"> the afraid <button id="line8"> tree </button> </p>
+    <h2> <i> changes, changes, changes</i></h2>
+    <div id="poster">
+        <div id="wrapper">
 
-    <p id="home"> <a href="index.html"> Return to homepage </a></p>
+            <!-- Who Taught You -->
+            <button id="btn--you" data-you-target="#you"> WHO TAUGHT YOU </button>
+                <div class="you" id="you">
+                <div class="header--you"> 
+                    <div class="title--you"> / </div>
+                    <button data-close-button class="close-button"> &times;</button>
+                </div>
+                <div class="you--body">
+                <p> 
+                    /
+                </p>
+                </div>
+            </div>
+            <div id="overlay"></div>
+
+            <!-- to unlove yourself -->
+            <button id="btn--unlove" data-you-target="#unlove"> TO UNLOVE YOURSELF </button>
+                <div class="unlove" id="unlove">
+                <div class="header--unlove"> 
+                    <div class="title--unlove"> /  </div>
+                    <button data-close-button class="close-button"> &times;</button>
+                </div>
+                <div class="fam--body">
+                <p> 
+                    /
+
+                </p>
+                </div>
+            </div>
+            <div id="overlay1"></div>
+
+            <!-- so sweetly -->
+            <button id="btn--sweetly" data-you-target="#sweetly"> SO SWEETLY </button>
+            <div class="sweetly" id="sweetly">
+            <div class="header--sweetly"> 
+                <div class="title--sweetly"> / </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="sweetly--body">
+            <p> 
+                /
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay2"></div>
+
+            <!-- that you actually thought -->
+            <button id="btn--thought" data-you-target="#thought"> THAT YOU ACTUALLY THOUGHT </button>
+            <div class="thought" id="thought">
+            <div class="header--thought"> 
+                <div class="title--thought"> / </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="thought--body">
+            <p> 
+                /
+            </p>
+            </div>
+            </div>
+            <div id="overlay3"></div>
+
+            <!-- it tasted -->
+            <button id="btn--tasted" data-you-target="#tasted"> IT TASTED </button>
+            <div class="tasted" id="tasted">
+            <div class="header--tasted"> 
+                <div class="title--tasted"> / </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="tasted--body">
+            <p> 
+                /
+            </p>
+            </div>
+            </div>
+            <div id="overlay4"></div>
+
+            <!-- good?  -->
+            <button id="btn--good" data-you-target="#good"> GOOD? </button>
+            <div class="good" id="good">
+            <div class="header--good"> 
+                <div class="title--good"> / </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="good--body">
+            <p> 
+              /
+            </p>
+            </div>
+            </div>
+            <div id="overlay5"></div>
+
+
+    <p id="link--home"> <i> Link to </i><a href="index.html"><i> homepage</i> </a></p>
+
+
+    <!-- Javascript -->
 
     <script>
-    function colorFunction(){
-        document.getElementById("first-line").style.backgroundColor = "navy";
-        document.getElementById("second-line").style.backgroundColor = "royalblue"; 
-        document.getElementById("third-line").style.backgroundColor = "skyblue";
-        document.getElementById("fourth-line").style.backgroundColor = "olivedrab"; 
-        document.getElementById("fifth-line").style.backgroundColor = "darkslategray";
-        document.getElementById("sixth-line").style.backgroundColor = "seagreen";
-        document.getElementById("seventh-line").style.backgroundColor = "pink";
-        document.getElementById("eigth-line").style.backgroundColor = "rosybrown";
+        // WHO TAUGHT YOU
+        const openYouButtons = document.querySelectorAll('[data-you-target]')
+    const closeYouButtons = document.querySelectorAll('[data-close-button]')
+    const overlay = document.getElementById('overlay')
+
+    openYouButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const you = document.querySelector(button.dataset.youTarget)
+            openYou(you)
+        })
+    })
+
+    closeYouButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const you = button.closest('.you')
+            closeYou(you)
+        })
+    })
+
+    function openYou(you){
+        if(you == null) return
+        you.classList.add('active')
+        overlay.classList.add('active')
+    }
+    
+    function closeYou(you){
+        if(you == null) return
+        you.classList.remove('active')
+        overlay.classList.remove('active')
     }
 
+    //  TO UNLOVE YOURSELF 
+    const openUnloveButtons = document.querySelectorAll('[data-unlove-target]')
+    const closeUnloveButtons = document.querySelectorAll('[data-close-button]')
+    const overlay1 = document.getElementById('overlay1')
+
+    openUnloveButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const unlove = document.querySelector(button.dataset.UnloveTarget)
+            openUnlove(unlove)
+        })
+    })
+
+    closeUnloveButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const unlove = button.closest('.unlove')
+            closeUnlove(unlove)
+        })
+    })
+
+    function openUnlove(unlove){
+        if(unlove == null) return
+        unlove.classList.add('active')
+        overlay1.classList.add('active')
+    }
+    
+    function closeUnlove(unlove){
+        if(unlove == null) return
+        unlove.classList.remove('active')
+        overlay1.classList.remove('active')
+    }
+
+    // SO SWEETLY
+    const openSweetlyButtons = document.querySelectorAll('[data-sweetly-target]')
+    const closeSweetlyButtons = document.querySelectorAll('[data-close-button]')
+    const overlay2 = document.getElementById('overlay2')
+
+    openSweetlyButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const sweetly = document.querySelector(button.dataset.sweetlyTarget)
+            openSweetly(sweetly)
+        })
+    })
+
+    closeSweetlyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const sweetly = button.closest('.sweetly')
+            closeSweetly(sweetly)
+        })
+    })
+
+    function openSweetly(sweetly){
+        if(sweetly == null) return
+        sweetly.classList.add('active')
+        overlay2.classList.add('active')
+    }
+    
+    function closeSweetly(sweetly){
+        if(sweetly == null) return
+        sweetly.classList.remove('active')
+        overlay2.classList.remove('active')
+    }
+
+    // THAT YOU ACTUALLY THOUGHT
+    const openThoughtButtons = document.querySelectorAll('[data-thought-target]')
+    const closeThoughtButtons = document.querySelectorAll('[data-close-button]')
+    const overlay3 = document.getElementById('overlay3')
+
+    openThoughtButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const thought = document.querySelector(button.dataset.thoughtTarget)
+            openThought(thought)
+        })
+    })
+
+    closeThoughtButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const thought = button.closest('.thought')
+            closeThought(thought)
+        })
+    })
+
+    function openThought(thought){
+        if(thought == null) return
+        thought.classList.add('active')
+        overlay3.classList.add('active')
+    }
+    
+    function closeThought(thought){
+        if(thought == null) return
+        thought.classList.remove('active')
+        overlay3.classList.remove('active')
+    }
+
+    // IT TASTED
+    const openTastedButtons = document.querySelectorAll('[data-tasted-target]')
+    const closeTastedButtons = document.querySelectorAll('[data-close-button]')
+    const overlay4 = document.getElementById('overlay4')
+
+    openTastedButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const tasted = document.querySelector(button.dataset.tastedTarget)
+            openJob(tasted)
+        })
+    })
+
+    closeTastedButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const Tasted = button.closest('.tasted')
+            closeTasted(tasted)
+        })
+    })
+
+    function openTasted(tasted){
+        if(tasted == null) return
+        tasted.classList.add('active')
+        overlay4.classList.add('active')
+    }
+    
+    function closeTasted(tasted){
+        if(tasted == null) return
+        tasted.classList.remove('active')
+        overlay4.classList.remove('active')
+    }
+
+    // GOOD
+    const openGoodButtons = document.querySelectorAll('[data-good-target]')
+    const closeGoodButtons = document.querySelectorAll('[data-close-button]')
+    const overlay5 = document.getElementById('overlay5')
+
+    openGoodButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const good = document.querySelector(button.dataset.goodTarget)
+            openGood(good)
+        })
+    })
+
+    closeGoodButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const good = button.closest('.good')
+            closeGood(good)
+        })
+    })
+
+    function openGood(good){
+        if(good == null) return
+        good.classList.add('active')
+        overlay5.classList.add('active')
+    }
+    
+    function closeGood(good){
+        if(good == null) return
+        good.classList.remove('active')
+        overlay5.classList.remove('active')
+    }
+   
 
     </script>
 </body>
