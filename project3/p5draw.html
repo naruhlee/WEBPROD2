@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naruhlee draws a poem </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+    
+    <!-- Starter Code: https://editor.p5js.org/sommerdeo@gmail.com/sketches/6lEPDgcUd -->
+    
+    <style>
+    *,*::after, *::before
+     {
+        box-sizing: border-box;
+    }
+
+    body{
+        background-color: rgb(187, 177, 255);
+    }
+    #poem{
+        font-weight: bold;
+        text-align: center;
+        font-size: 20px;
+    }
+    .top--bar{
+            width: infinite;
+            height: 90px;
+            background-color: black;
+            align-items: center;
+            overflow-x: hidden;
+            overflow-y: hidden;
+
+        }
+        .top--bar h2{
+            text-align: center;
+            color: rgb(187, 177, 255);
+            font-family: sans-serif;
+            font-size: 30px;
+            left: 190px;
+        }
+        html,body {
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            display: block;
+            text-align: center;
+            margin-left: 15%;
+        }
+        #instructions {
+            font-size: 14px;
+            text-align: center;
+            font-weight: 400;
+            font-family: sans-serif;
+        }
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="top--bar">
+        <h2> drawing a poem using p5 </h2>
+     </div>
+
+        <p id="poem"> <i>poem: who taught you to unlove yourself so sweetly 
+        that you actually thought it tasted good? </i>
+     </p> 
+
+     <p id="instructions"> 
+        Instructions: click anywhere on the canvas to reveal images. 
+     </p>
+
+    </div>
+
+
+    <script>
+        function setup() {
+  createCanvas(600, 400);
+  background(255);
+//The variable img, will load the image 'takashi.png'
+  flower1 = loadImage('flower1.png');
+  flower2 = loadImage('flower2.png');
+  flower3 = loadImage('flower3.png');
+//Refreshes the image 15 times per second
+  frameRate(15);
+}
+
+
+function draw() {
+  if (mouseIsPressed) {
+/*Variable s will give a random number output between 10 and 100.
+*/
+    let s = random(10, 100);
+    let flowers = [flower1, flower2, flower3];
+    let randomFlowers = random(flowers);
+    
+    
+/*Draws variable img, which will appear where the mouse is pressed on the canvas with a random height and width between 10 and 100.
+*/
+    image(randomFlowers, mouseX - 25, mouseY - 25, s, s);
+    
+/*Image appears to change colour by  giving the image a random tint at the frame rate.
+*/
+    tint(random(150, 250), random(100), random(150, 250));
+  }
+}
+    </script>
+</body>
+</html>
