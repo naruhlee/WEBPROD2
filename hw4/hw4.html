@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> naruhlee adds an event </title>
+<style>
+html {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.reveal-button {
+  padding: 1em 1.2em;
+  background: #969ff5;
+  color: white;
+  font-size: 20px;
+  border-radius: .3em;
+  border: none;
+  border-bottom: 4px solid #030f5f;
+  cursor: pointer;
+  margin-left: 4%;
+  margin-top: 20%;
+}
+
+section {
+  max-width: 700px;
+  margin: 2em auto;
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #2b2c3b;
+  text-align: left;
+}
+
+.hidden-section {
+    display: none;
+}
+.hidden-section.reveal {
+    display: block;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    <button class="reveal-button">Click here</button>
+    <section class="hidden-section">
+        Who taught you unlove yourself <br>
+        so sweetly <br>
+        that you actually thought <br>
+        it tasted good? 
+    </section>
+
+    <p id="intro">  To reveal a poem and change the background color,
+     <i>click the button  </i>
+    
+    </p>
+
+
+
+    
+    <!-- Javascript -->
+    <script>
+    /* Button REVEAL */
+const revealButton = document.querySelector(".reveal-button");
+const hiddenSection = document.querySelector(".hidden-section");
+
+/* Callback function */
+function revealSection() {
+    if (hiddenSection.classList.contains("reveal")) {
+        hiddenSection.classList.remove("reveal");
+    } else {
+        hiddenSection.classList.add("reveal");
+    }
+}
+
+/* Event listener */
+revealButton.addEventListener("click", revealSection, false);
+
+
+// .
+
+// Change Background Color 
+
+    const btn = document.querySelector("button");
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+btn.addEventListener("click", () => {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+});
+
+
+
+
+    </script>    
+</body>
+</html>
